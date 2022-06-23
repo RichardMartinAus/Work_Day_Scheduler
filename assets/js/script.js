@@ -111,90 +111,143 @@ function colourBlocks () {
         textArea17.classList.add("present");
     };
 }
-colourBlocks();
 
 // SAVE INPUTS TO LOCAL STORAGE WHEN SAVE BUTTON CLICKED
-// var todos = [];
+var taskToSave09 = document.getElementById("text-09");
+var taskToSave10 = document.getElementById("text-10");
+var taskToSave11 = document.getElementById("text-11");
+var taskToSave12 = document.getElementById("text-12");
+var taskToSave13 = document.getElementById("text-13");
+var taskToSave14 = document.getElementById("text-14");
+var taskToSave15 = document.getElementById("text-15");
+var taskToSave16 = document.getElementById("text-16");
+var taskToSave17 = document.getElementById("text-17");
 
-// // The following function renders items in a todo list as <li> elements
-// function renderTodos() {
-//   // Clear todoList element and update todoCountSpan
-//   todoList.innerHTML = "";
-//   todoCountSpan.textContent = todos.length;
+function saveTask() {
+  // Save related form data as an object
+  var task09 = {TaskToSave: taskToSave09.value,};
+  var task10 = {TaskToSave: taskToSave10.value,};
+  var task11 = {TaskToSave: taskToSave11.value,};
+  var task12 = {TaskToSave: taskToSave12.value,};
+  var task13 = {TaskToSave: taskToSave13.value,};
+  var task14 = {TaskToSave: taskToSave14.value,};
+  var task15 = {TaskToSave: taskToSave15.value,};
+  var task16 = {TaskToSave: taskToSave16.value,};
+  var task17 = {TaskToSave: taskToSave17.value,};
+  // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
+  localStorage.setItem("task09", JSON.stringify(task09));
+  localStorage.setItem("task10", JSON.stringify(task10));
+  localStorage.setItem("task11", JSON.stringify(task11));
+  localStorage.setItem("task12", JSON.stringify(task12));
+  localStorage.setItem("task13", JSON.stringify(task13));
+  localStorage.setItem("task14", JSON.stringify(task14));
+  localStorage.setItem("task15", JSON.stringify(task15));
+  localStorage.setItem("task16", JSON.stringify(task16));
+  localStorage.setItem("task17", JSON.stringify(task17));
+}
 
-//   // Render a new li for each todo
-//   for (var i = 0; i < todos.length; i++) {
-//     var todo = todos[i];
+function renderSavedTask() {
+  // Use JSON.parse() to convert text to JavaScript object
+  var savedTask09 = JSON.parse(localStorage.getItem("task09"));
+  var savedTask10 = JSON.parse(localStorage.getItem("task10"));
+  var savedTask11 = JSON.parse(localStorage.getItem("task11"));
+  var savedTask12 = JSON.parse(localStorage.getItem("task12"));
+  var savedTask13 = JSON.parse(localStorage.getItem("task13"));
+  var savedTask14 = JSON.parse(localStorage.getItem("task14"));
+  var savedTask15 = JSON.parse(localStorage.getItem("task15"));
+  var savedTask16 = JSON.parse(localStorage.getItem("task16"));
+  var savedTask17 = JSON.parse(localStorage.getItem("task17"));
+  // Check if data is returned, if not exit out of the function
+  if (savedTask09 !== null) {
+  document.getElementById("text-09").innerHTML = savedTask09.TaskToSave,
+  document.getElementById("text-10").innerHTML = savedTask10.TaskToSave,
+  document.getElementById("text-11").innerHTML = savedTask11.TaskToSave,
+  document.getElementById("text-12").innerHTML = savedTask12.TaskToSave,
+  document.getElementById("text-13").innerHTML = savedTask13.TaskToSave,
+  document.getElementById("text-14").innerHTML = savedTask14.TaskToSave,
+  document.getElementById("text-15").innerHTML = savedTask15.TaskToSave,
+  document.getElementById("text-16").innerHTML = savedTask16.TaskToSave,
+  document.getElementById("text-17").innerHTML = savedTask17.TaskToSave;
+  } else {
+    return;
+  }
+}
 
-//     var li = document.createElement("li");
-//     li.textContent = todo;
-//     li.setAttribute("data-index", i);
+// Eventlistenners for save buttons
+var saveButton09 = document.getElementById("saveBtn09");
+var saveButton10 = document.getElementById("saveBtn10");
+var saveButton11 = document.getElementById("saveBtn11");
+var saveButton12 = document.getElementById("saveBtn12");
+var saveButton13 = document.getElementById("saveBtn13");
+var saveButton14 = document.getElementById("saveBtn14");
+var saveButton15 = document.getElementById("saveBtn15");
+var saveButton16 = document.getElementById("saveBtn16");
+var saveButton17 = document.getElementById("saveBtn17");
 
-//     var button = document.createElement("button");
-//     button.textContent = "Complete ✔️";
+saveButton09.addEventListener("click", function(event) {
+event.preventDefault();
+saveTask();
+renderSavedTask();
+});
 
-//     li.appendChild(button);
-//     todoList.appendChild(li);
-//   }
-// }
+saveButton10.addEventListener("click", function(event) {
+event.preventDefault();
+saveTask();
+renderSavedTask();
+});
 
-// // This function is being called below and will run when the page loads.
-// function init() {
-//   // Get stored todos from localStorage
-//   var storedTodos = JSON.parse(localStorage.getItem("todos"));
+saveButton11.addEventListener("click", function(event) {
+event.preventDefault();
+saveTask();
+renderSavedTask();
+});
 
-//   // If todos were retrieved from localStorage, update the todos array to it
-//   if (storedTodos !== null) {
-//     todos = storedTodos;
-//   }
+saveButton12.addEventListener("click", function(event) {
+event.preventDefault();
+saveTask();
+renderSavedTask();
+});
 
-//   // This is a helper function that will render todos to the DOM
-//   renderTodos();
-// }
+saveButton13.addEventListener("click", function(event) {
+event.preventDefault();
+saveTask();
+renderSavedTask();
+});
 
-// function storeTodos() {
-//   // Stringify and set key in localStorage to todos array
-//   localStorage.setItem("todos", JSON.stringify(todos));
-// }
+saveButton14.addEventListener("click", function(event) {
+event.preventDefault();
+saveTask();
+renderSavedTask();
+});
 
-// // Add submit event to form
-// todoForm.addEventListener("submit", function(event) {
-//   event.preventDefault();
+saveButton15.addEventListener("click", function(event) {
+event.preventDefault();
+saveTask();
+renderSavedTask();
+});
 
-//   var todoText = todoInput.value.trim();
+saveButton16.addEventListener("click", function(event) {
+event.preventDefault();
+saveTask();
+renderSavedTask();
+});
 
-//   // Return from function early if submitted todoText is blank
-//   if (todoText === "") {
-//     return;
-//   }
+saveButton17.addEventListener("click", function(event) {
+event.preventDefault();
+saveTask();
+renderSavedTask();
+});
 
-//   // Add new todoText to todos array, clear the input
-//   todos.push(todoText);
-//   todoInput.value = "";
 
-//   // Store updated todos in localStorage, re-render the list
-//   storeTodos();
-//   renderTodos();
-// });
+// The init() function fires when the page is loaded 
+function init() {
+  // When the init function is executed, the code inside renderLastGrade function will also execute
+  renderSavedTask();
+  colourBlocks();
+}
 
-// // Add click event to todoList element
-// todoList.addEventListener("click", function(event) {
-//   var element = event.target;
+init();
 
-//   // Checks if element is a button
-//   if (element.matches("button") === true) {
-//     // Get its data-index value and remove the todo element from the list
-//     var index = element.parentElement.getAttribute("data-index");
-//     todos.splice(index, 1);
-
-//     // Store updated todos in localStorage, re-render the list
-//     storeTodos();
-//     renderTodos();
-//   }
-// });
-
-// // Calls init to retrieve data and render it to the page on load
-// init()
 
 // ADD CONFIRMATION TEXT AT TOP OF PAGE WHEN INPUT SAVED TO LOCAL STORAGE
 
