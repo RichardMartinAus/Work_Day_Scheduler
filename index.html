@@ -37,12 +37,12 @@
     
     <header class="jumbotron">
       <h1 class="display-3">Work Day Scheduler</h1>
-      <p class="lead">A simple calendar app for scheduling your work day</p>
+      <p class="lead" style="padding-top: 10px">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
     
     <div class="container">
-      <div id="save-confirmation" class="lead"></div>
+      <div id="save-confirmation" class="lead" style="text-align: center"></div>
       <!-- Timeblocks go here -->
       <div class="row">
         <div class="hour"><br><br>9 AM</div>
@@ -96,6 +96,10 @@
         <div class="hour"><br><br>5 PM</div>
         <textarea id="text-17"></textarea>
         <button id="saveBtn17" class="saveBtn"><i class="fa-solid fa-floppy-disk"></i></button>
+      </div>
+      
+      <div class="col text-center">
+        <button id="clear-storage-button" class="btn" style="align-items: center;">Click here to clear all tasks</button>
       </div>
     </div>
 

@@ -19,7 +19,17 @@ function colourBlocks () {
     var currentTime = moment().get('hour');
     console.log(currentTime);
 
-    if (currentTime === 09) {
+    if (currentTime < 09) {
+        textArea09.classList.add("future"),
+        textArea10.classList.add("future"),
+        textArea11.classList.add("future"),
+        textArea12.classList.add("future"),
+        textArea13.classList.add("future"),
+        textArea14.classList.add("future"),
+        textArea15.classList.add("future"),
+        textArea16.classList.add("future"),
+        textArea17.classList.add("future");
+    } else if (currentTime === 09) {
         textArea09.classList.add("present"),
         textArea10.classList.add("future"),
         textArea11.classList.add("future"),
@@ -29,7 +39,7 @@ function colourBlocks () {
         textArea15.classList.add("future"),
         textArea16.classList.add("future"),
         textArea17.classList.add("future");
-    } else if (currentTime === 10) {
+    }else if (currentTime === 10) {
         textArea09.classList.add("past"),
         textArea10.classList.add("present"),
         textArea11.classList.add("future"),
@@ -109,31 +119,31 @@ function colourBlocks () {
         textArea15.classList.add("past"),
         textArea16.classList.add("past"),
         textArea17.classList.add("present");
+    } else if (currentTime > 17) {
+        textArea09.classList.add("past"),
+        textArea10.classList.add("past"),
+        textArea11.classList.add("past"),
+        textArea12.classList.add("past"),
+        textArea13.classList.add("past"),
+        textArea14.classList.add("past"),
+        textArea15.classList.add("past"),
+        textArea16.classList.add("past"),
+        textArea17.classList.add("past");
     };
 }
 
 // SAVE INPUTS TO LOCAL STORAGE WHEN SAVE BUTTON CLICKED
-var taskToSave09 = document.getElementById("text-09");
-var taskToSave10 = document.getElementById("text-10");
-var taskToSave11 = document.getElementById("text-11");
-var taskToSave12 = document.getElementById("text-12");
-var taskToSave13 = document.getElementById("text-13");
-var taskToSave14 = document.getElementById("text-14");
-var taskToSave15 = document.getElementById("text-15");
-var taskToSave16 = document.getElementById("text-16");
-var taskToSave17 = document.getElementById("text-17");
-
 function saveTask() {
   // Save related form data as an object
-  var task09 = {TaskToSave: taskToSave09.value,};
-  var task10 = {TaskToSave: taskToSave10.value,};
-  var task11 = {TaskToSave: taskToSave11.value,};
-  var task12 = {TaskToSave: taskToSave12.value,};
-  var task13 = {TaskToSave: taskToSave13.value,};
-  var task14 = {TaskToSave: taskToSave14.value,};
-  var task15 = {TaskToSave: taskToSave15.value,};
-  var task16 = {TaskToSave: taskToSave16.value,};
-  var task17 = {TaskToSave: taskToSave17.value,};
+  var task09 = {TaskToSave: textArea09.value,};
+  var task10 = {TaskToSave: textArea10.value,};
+  var task11 = {TaskToSave: textArea11.value,};
+  var task12 = {TaskToSave: textArea12.value,};
+  var task13 = {TaskToSave: textArea13.value,};
+  var task14 = {TaskToSave: textArea14.value,};
+  var task15 = {TaskToSave: textArea15.value,};
+  var task16 = {TaskToSave: textArea16.value,};
+  var task17 = {TaskToSave: textArea17.value,};
   // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
   localStorage.setItem("task09", JSON.stringify(task09));
   localStorage.setItem("task10", JSON.stringify(task10));
@@ -173,7 +183,7 @@ function renderSavedTask() {
   }
 }
 
-// Eventlistenners for save buttons
+// Eventlisteners for save buttons
 var saveButton09 = document.getElementById("saveBtn09");
 var saveButton10 = document.getElementById("saveBtn10");
 var saveButton11 = document.getElementById("saveBtn11");
@@ -188,70 +198,87 @@ saveButton09.addEventListener("click", function(event) {
 event.preventDefault();
 saveTask();
 renderSavedTask();
+confirmationMessage();
 });
 
 saveButton10.addEventListener("click", function(event) {
 event.preventDefault();
 saveTask();
 renderSavedTask();
+confirmationMessage();
 });
 
 saveButton11.addEventListener("click", function(event) {
 event.preventDefault();
 saveTask();
 renderSavedTask();
+confirmationMessage();
 });
 
 saveButton12.addEventListener("click", function(event) {
 event.preventDefault();
 saveTask();
 renderSavedTask();
+confirmationMessage();
 });
 
 saveButton13.addEventListener("click", function(event) {
 event.preventDefault();
 saveTask();
 renderSavedTask();
+confirmationMessage();
 });
 
 saveButton14.addEventListener("click", function(event) {
 event.preventDefault();
 saveTask();
 renderSavedTask();
+confirmationMessage();
 });
 
 saveButton15.addEventListener("click", function(event) {
 event.preventDefault();
 saveTask();
 renderSavedTask();
+confirmationMessage();
 });
 
 saveButton16.addEventListener("click", function(event) {
 event.preventDefault();
 saveTask();
 renderSavedTask();
+confirmationMessage();
 });
 
 saveButton17.addEventListener("click", function(event) {
 event.preventDefault();
 saveTask();
 renderSavedTask();
+confirmationMessage();
 });
 
+function confirmationMessage() {
+    document.getElementById("save-confirmation").innerHTML = "Tasks saved to local storage ✅";
+}
 
-// The init() function fires when the page is loaded 
+// The init() function fires when the page is loaded and colours the blocks and retrieves saved tasks
 function init() {
-  // When the init function is executed, the code inside renderLastGrade function will also execute
   renderSavedTask();
   colourBlocks();
 }
 
 init();
 
+// Clear all saved tasks
+var clearLocalStorage = document.getElementById("clear-storage-button");
 
-// ADD CONFIRMATION TEXT AT TOP OF PAGE WHEN INPUT SAVED TO LOCAL STORAGE
+clearLocalStorage.addEventListener("click", function(event) {
+    event.preventDefault();
+    localStorage.clear();
+    location.reload();
+});
 
-// RECALL SAVED INPUTS FROM LOCAL STORAGE WHEN PAGE REFRESHED
 
-// CLEAR LOCAL STORAGE IF TIME IS AFTER 00:00
+
+
 
