@@ -8,7 +8,7 @@ Tasks can be saved to specific time-slots and saved using the save icon on the r
 
 The tasks can be cleared by clicking the text at the bottom of the page.
 
-Link to the deployed applicaiton:
+Link to the deployed application: https://richardmartinaus.github.io/Work_Day_Scheduler/
 
 Below is a screenshot of the deployed application:
 
